@@ -1,0 +1,34 @@
+session_name: gamma_imbalance
+start_directory: '/Users/heino/Google Drive/__Promotion/__gamma_imbalance/02_programs/'
+windows:
+    - window_name: local
+      layout: even-horizontal
+      focus: True
+      panes:
+        - 
+        - shell_command:
+            - conda activate gamma_imbalance
+            - ipython --matplotlib
+    - window_name: pc
+      layout: even-horizontal
+      panes:
+          - shell_command:
+              - ssh pc_vpn
+              - cd "C:/Users/h_beck18/Google Drive/__Promotion/__gamma_imbalance/02_programs"
+              - powershell
+              - conda activate gamma_imbalance
+              - ipython
+    - window_name: palma
+      layout: even-horizontal
+      panes:
+          - ssh palma
+          - shell_command:
+              - ssh palma
+              - cd '/mnt/wwu1/projects/d_taqopt/taq/projects/h_beck18/gamma_imbalance/'
+              - module add intel/2019a
+              - module add Python/3.7.2
+    - window_name: git
+      layout: even-horizontal
+      panes:
+        - git status
+        - pwd

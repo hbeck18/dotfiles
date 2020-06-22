@@ -1,0 +1,23 @@
+session_name: fed_call
+start_directory: '/Users/heino/sciebo/__active/fed_call/Programs/__Python'
+windows:
+    - window_name: python
+      layout: even-horizontal
+      focus: True
+      panes:
+        - 
+        - shell_command:
+            - conda activate fomc
+            - ipython --matplotlib
+    - window_name: palma
+      layout: even-horizontal
+      panes:
+          - shell_command:
+              - ssh palma
+          - ssh palma
+    - window_name: git
+      layout: even-horizontal
+      panes:
+        - git status
+        - pwd
+

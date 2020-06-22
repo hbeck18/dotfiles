@@ -1,0 +1,24 @@
+session_name: fomc_network
+start_directory: '/Users/heino/sciebo/__active/network/'
+windows:
+    - window_name: python
+      layout: even-horizontal
+      focus: True
+      panes:
+        - nvim
+        - shell_command:
+            - conda activate network_factors
+            - ipython
+    - window_name: palma
+      layout: even-horizontal
+      panes:
+          - shell_command:
+              - ssh palma
+              - cd '/mnt/wwu1/projects/d_taqopt/taq/'
+              - nvim
+          - ssh palma
+          - cd '/mnt/wwu1/projects/d_taqopt/taq/'
+    - window_name: git
+      panes:
+        - git status
+
