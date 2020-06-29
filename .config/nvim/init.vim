@@ -1,5 +1,5 @@
 " Specify a directory for plugins:A
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 
 " Simpler code folding in Python:
 Plug 'tmhedberg/SimpylFold'
@@ -72,7 +72,11 @@ call plug#end()
 " --> python highlighting,
 " --> changing leader key to <,>
 let python_highlight_all=1
-let g:python3_host_prog=expand('~/opt/anaconda3/envs/neovim/bin/python3.8')
+if has('mac')
+    let g:python3_host_prog=expand('~/opt/anaconda3/envs/neovim/bin/python3.8')
+else
+    let g:python3_host_prog=expand('~/anaconda3/envs/neovim/bin/python3.8')
+endif
 syntax on
 let mapleader = ","  " changes leader key.
 " basic settings
