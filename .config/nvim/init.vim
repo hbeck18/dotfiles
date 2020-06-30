@@ -61,9 +61,6 @@ Plug 'tpope/vim-obsession'
 Plug 'dhruvasagar/vim-prosession'
 
 
-" autosave
-Plug '907th/vim-auto-save'
-
 
 " Initialize plugin system
 call plug#end()
@@ -374,7 +371,7 @@ nmap <silent> <Leader>d <Plug>(pydocstring)
 
 
 " ----- vim-slime settings -----
-let g:slime_target = "tmux"
+let g:slime_target = "neovim"
 let g:slime_paste_file = "$HOME/.slime_paste"
 let g:slime_python_ipython = 1
 
@@ -390,3 +387,35 @@ nmap <leader>s <Plug>SlimeSendCell
 
 " Vim whichkey
 nnoremap <silent> <leader> :WhichKey ','<CR>
+
+
+
+" === TMUX-like behavior ===
+" Maps ESC to exit terminal's insert mode
+set splitbelow
+set splitright
+if has('nvim')
+tnoremap <Esc> <C-\><C-n>
+endif
+
+" Maps ctrl-b + c to open a new tab window
+nnoremap <C-a>c :tabnew +terminal<CR>
+tnoremap <C-a>c <C-\><C-n>:tabnew +terminal<CR>
+
+" Maps ctrl-b + " to open a new horizontal split with a terminal
+nnoremap <C-a>h :new +terminal<CR>
+tnoremap <C-a>h <C-\><C-n>:new +terminal<CR>
+
+" Maps ctrl-b + % to open a new vertical split with a terminal
+nnoremap <C-a>v :vnew +terminal<CR>
+tnoremap <C-a>v <C-\><C-n>:vnew +terminal<cr>
+
+augroup neovim_terminal
+    autocmd!
+
+    " Enter Terminal-mode (insert) automatically
+    autocmd TermOpen * startinsert
+
+    " Disables number lines on terminal buffers
+    autocmd TermOpen * :set nonumber norelativenumber
+augroup END
