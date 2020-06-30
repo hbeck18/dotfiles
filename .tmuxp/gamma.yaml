@@ -1,5 +1,5 @@
 session_name: gamma_imbalance
-start_directory: '/Users/heino/Google Drive/__Promotion/__gamma_imbalance/02_programs/'
+start_directory: '/Users/heino/Google Drive/__Promotion/__gamma_exposure/02_programs/'
 windows:
     - window_name: local
       layout: even-horizontal
@@ -14,7 +14,7 @@ windows:
       panes:
           - shell_command:
               - ssh pc_vpn
-              - cd "C:/Users/h_beck18/Google Drive/__Promotion/__gamma_imbalance/02_programs"
+              - cd "C:/Users/h_beck18/Google Drive/__Promotion/__gamma_exposure/02_programs"
               - powershell
               - conda activate gamma_imbalance
               - ipython
@@ -24,7 +24,7 @@ windows:
           - ssh palma
           - shell_command:
               - ssh palma
-              - cd '/mnt/wwu1/projects/d_taqopt/taq/projects/h_beck18/gamma_imbalance/'
+              - cd '/mnt/wwu1/projects/d_taqopt/taq/projects/h_beck18/__gamma_exposure/'
               - module add intel/2019a
               - module add Python/3.7.2
     - window_name: git
